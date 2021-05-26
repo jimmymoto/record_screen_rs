@@ -1,0 +1,14 @@
+              <nav>
+                <div class="nav-wrapper blue darken-3">
+                  <a href="#" class="brand-logo right">RCSCREEN</a>
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="/">Inicio</a></li>
+                      {% if user.is_authenticated %}
+                        <li><a href="/logout">Salir</a></li>
+                      {% else %}
+                        <li><a href="/registro">Registro</a></li>
+                        <li><a href="/login">Ingreso</a></li>
+                      {% endif %}
+                  </ul>
+                </div>
+              </nav>

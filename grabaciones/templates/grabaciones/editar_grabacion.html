@@ -1,0 +1,28 @@
+{% extends 'principal/principal.html' %}
+
+{% block content %}
+        <div class="row">
+            <div class="col l2"></div>
+            <div class="col s12 m6 l8">
+                <form action="inicio.html" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="namesession" value="{{ namesession }}">
+                    <input type="hidden" name="idsession" value="{{ idsession }}">
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="window.open('{{ url_api }}/#/{{ namesession }}')">Comenzar Grabacion
+                    </button>
+                </form>{{ namesession }}
+                {% for grabacion in grabaciones %}
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">{{grabacion.sessionId}}</span>
+                    <span class="card-title">{{grabacion.name}}</span>
+                </div>
+                <div class="card-action">
+                  <a href="{% url 'editar_grabacion' grabacion.sessionId %}">Editar</a>
+                  <a href="#">Borrar</a>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+{% endblock %}

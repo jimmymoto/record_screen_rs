@@ -1,0 +1,8 @@
+*.egg
+.ipynb_checkpoints
+logs
+.idea/
+*.sqlite3
+*/__pycache__*
+scripts
+secrets.json
